@@ -1,0 +1,250 @@
+/* ==== 1. RESET & BASES ==== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+/* ==== 2. LAYOUT CONTAINERS ==== */
+header,
+section,
+footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ==== 3. HEADER / NAVIGATION ==== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+header nav a,
+header nav button {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+header nav .dropdown {
+  position: relative;
+}
+
+header nav .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  list-style: none;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+header nav .dropdown-menu li + li {
+  margin-top: 0.5rem;
+}
+
+/* ==== 4. HERO / INTRO ==== */
+#hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00c1c8;
+}
+
+#hero p {
+  max-width: 700px;
+  margin: 0.75rem auto;
+  color: #555;
+}
+
+#hero a {
+  color: #00c1c8;
+  text-decoration: underline;
+}
+
+/* ==== 5. “FOR …” SECTIONS ==== */
+section[id^="for-"] {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+section[id^="for-"] h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+section[id^="for-"] h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+section[id^="for-"] label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+section[id^="for-"] select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ==== 6. CLINICS OPTIONS GRID ==== */
+#for-clinics .clinic-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#for-clinics .clinic-options div {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+}
+
+#for-clinics .clinic-options h4 {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+#for-clinics .clinic-options ul {
+  list-style: none;
+}
+
+#for-clinics .clinic-options a {
+  text-decoration: none;
+  color: #00c1c8;
+  display: block;
+  margin: 0.25rem 0;
+}
+
+/* ==== 7. COMPANY SNAPSHOT ==== */
+#company-snapshot {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#company-snapshot .office-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#company-snapshot .office-logos img {
+  height: 40px;
+}
+
+#company-snapshot .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+#company-snapshot .stat h3 {
+  font-size: 1.5rem;
+  color: #00c1c8;
+  margin-bottom: 0.5rem;
+}
+
+#company-snapshot .stat p {
+  color: #555;
+}
+
+/* ==== 8. CAREERS / JOIN US ==== */
+#careers {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#careers h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#careers p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+
+#careers .office-openings {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#careers .office-openings a {
+  text-decoration: none;
+  color: #00c1c8;
+  font-weight: 500;
+}
+
+#careers .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #00c1c8;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ==== 9. FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+footer a {
+  color: #00c1c8;
+  text-decoration: none;
+  margin: 0 0.25rem;
+}
