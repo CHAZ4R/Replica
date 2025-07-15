@@ -216,6 +216,7 @@ p {
 
 .sub-menu a:hover {
   background-color: #f6f8f8;
+  color: #00a892;
 }
 
 .logo-text {
@@ -277,140 +278,228 @@ p {
 
 /* ===== SERVICES SECTION ===== */
 .services {
-  padding: 60px 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-.inner.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  justify-content: center;
-  align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.card {
-  width: 100%;          /* Take full width of the grid cell */
-  min-width: 250px;     /* Keep a minimum width */
-  max-width: 350px;     /* Optional max width */
-  height: 400px;        /* Fix the height - same for all cards */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #00ccb1;
-  border-radius: 10px;
-  padding: 30px;
-  box-sizing: border-box;
-  color: white;
-  margin: 15px 0;       /* vertical margin only */
+.services .inner {
+    text-align: left;
+    margin-bottom: 50px;
 }
 
-.card:nth-child(2) {
-  background: #3d83df;
+.services h2 {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 300;
+    text-align: left;
+
 }
 
-.card:nth-child(3) {
-  background: #1b2734;
+.services p {
+    font-size: 1.1rem;
+    color: #747474;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
 }
 
-.card h2 {
-  color: white;
-  margin: 10px 0;
+/* Grid container */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: left;
 }
 
-.select-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  padding: 10px 0;
-  text-align: left;
-  width: 100%;
-  position: relative;
-}
-
-.select-btn::after {
-  content: "▾";
-  position: absolute;
-  right: 0;
-}
-
-.options {
-  display: none;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 4px;
-  padding: 15px;
-  margin-top: 10px;
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  right: 30px;
-  z-index: 2;
-}
-
-.options a {
-  color: #333;
-  display: block;
-  padding: 5px 0;
-}
-
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.options-grid h3 {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.flip-card-front h2 {
-  font-size: 1.6rem; /* smaller than default */
-  font-weight: 400;/* makes it bold */
-  font-family: Work Sans, Arial, sans-serif;
-}
-.flip-card-front p {
-  font-size: 1.1rem; /* smaller than default */
-  font-family: Work Sans, Arial, sans-serif;
-}
+/* ===== CARD CONTAINERS ===== */
 .flip-card {
-  perspective: 1000px;
+    width: 100%;
+    max-width: 350px;     /* prevents overstretching */
+    height: 400px;
+    perspective: 1000px;
+    margin: 0 auto;       /* center within grid cell */
+    border-radius: 10px;
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease;
-  transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: flex-start;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+.flip-card-front h2 {
+  align-self: flex-start;  /* overrides the parent’s align-items */
+  text-align: left;        /* good practice */
+  width: 100%;             /* so text‑align takes up full width */
+  margin: 15px 0;          /* adjust vertical spacing as you like */
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
+/* ===== FRONT/BACK COMMON STYLES ===== */
 .flip-card-front,
 .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  top: 0;
-  left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== FRONT CARD STYLES ===== */
+.flip-card-front {
+    color: white;
+    text-align: left;
+}
+
+/* Patients card (green) */
+.flip-card:nth-child(1) .flip-card-front {
+    background: linear-gradient(to bottom right, #00ccb1, #00b39b);
+}
+
+/* Doctors card (blue) */
+.flip-card:nth-child(2) .flip-card-front {
+    background: linear-gradient(to bottom right, #3d83df, #1a73e8);
+}
+
+/* Clinics card (dark) */
+.flip-card:nth-child(3) .flip-card-front {
+    background: linear-gradient(to bottom right, #1b2734, #0e1a27);
+}
+
+.card-logo {
+    position: absolute;  /* added */
+    top: 70px;           /* distance from top of card */
+    left: 30px;          /* distance from left of card */
+    width: 30px;         /* smaller size */
+    height: 30px;        /* smaller size */
+    margin: 10;           /* remove bottom margin */
+    filter: brightness(0) invert(1);
+}
+.flip-card-front h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.flip-card-front p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 300px;
+}
+
+.select-btn {
+  background: none;       /* no button background */
+  border: none;           /* no border */
+  padding: 0;             /* no padding */
+  margin: 0;              /* reset margins */
+  color: white;           /* your text color */
+  font-size: 0.95rem;     /* keep your size */
+  font-weight: normal;    /* neutral weight */
+  display: inline;        /* inline text flow */
+  cursor: pointer;        /* pointer if it’s clickable */
+  text-decoration: none;  /* no underline by default */
+  transition: color 0.3s; /* subtle hover */
+}
+
+.select-btn:hover {
+  color: rgba(255,255,255,0.7);
+  text-decoration: underline;
+}
+
+
+.select-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Patients card (green) */
+.flip-card:nth-child(1) .flip-card-back {
+    background: linear-gradient(to bottom right, #00ccb1, #00b39b);
+}
+
+/* Doctors card (blue) */
+.flip-card:nth-child(2) .flip-card-back {
+    background: linear-gradient(to bottom right, #3d83df, #1a73e8);
+}
+
+/* Clinics card (dark) */
+.flip-card:nth-child(3) .flip-card-back {
+    background: linear-gradient(to bottom right, #1b2734, #0e1a27);}
+/* ===== BACK CARD STYLES ===== */
 .flip-card-back {
-  transform: rotateY(180deg);
-  /* background colors set per card */
-  color: white;
-  padding: 30px;
-  box-sizing: border-box;
-  overflow-y: auto;
+    transform: rotateY(180deg);
+    text-align: left;
+    padding: 30px;
+    
 }
 
+.options {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.options li {
+    margin-bottom: 12px;
+}
+
+.options a {
+    color: #3d83df;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: block;
+    padding: 6px 0;
+}
+
+.options a:hover {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+.options h3 {
+    color: #00b39b;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 25px 0 15px;
+    text-align: left;
+}
+
+.options h3:first-child {
+    margin-top: 0;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 992px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .services h1 {
+        font-size: 2rem;
+    }
+}
 /* ===== BRANDS SECTION ===== */
 .brands {
   padding: 60px 0;
@@ -723,3 +812,4 @@ p {
     width: 100%;
   }
 }
+
